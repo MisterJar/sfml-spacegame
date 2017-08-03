@@ -3,7 +3,15 @@
 // the game is going to have enemys the player and obstacles.
 // the player is going to be a triangle, 
 // the aliens are going to be a sphere.
+//
+//
+//
 // THE GAMES ELEMENTS!!!
+// The games elements are going to be shooting at the aliens.
+// The game might have health and might have some diffitculty areas.
+// Plus here might be a main menu so you can change settings but thats for a different time.
+//
+// If theres anything that I or you want to add, list them here
 //
 // TODO
 #include <SFML/Graphics.hpp>
