@@ -20,25 +20,30 @@
 using namespace std;
 using namespace sf;
 // Make gameplay items like money and the players and misc stuff.
-struct spaceMoney {
-	int ironMoney;
-	int goldMoney;
-	int platMoney;
-	int scrapMoney;
+class Points {
+	public:
+
+
+};
+class spaceMoney {
+	public:
+		int ironMoney = 10;
+		int goldMoney = 50;
+		int platMoney = 100;
 };
 class player {
 	public:
-	// make player health and other stuff that the player should have.
-	int health = 100;
-	int shield = 200;
-	long int money = 0;
+		// make player health and other stuff that the player should have.
+		int health = 100;
+		int shield = 200;
+		long int money = 0;
 
 };
 class alien {
 	public:
-	// make alien health and other stuff that the aliens should have.
-	int alienHealth = 70;
-	int alienShield = 40;
+		// make alien health and other stuff that the aliens should have.
+		int alienHealth = 70;
+		int alienShield = 40;
 
 };
 
@@ -71,12 +76,13 @@ int main()
 		while(window.pollEvent(event))
 		{
 			if(event.type == Event::Closed) window.close();
-			
+					
 
 			// trying to make the bullet stay with the player.
-//			if(bulletPostion = playerMovement)
+//			if(the player moves.)
 //			{
-//				bulletPostion == playerMovement;
+//				// move the bullet where the player is.
+//				// add the statement where the bullet can be the same as the players
 //			}
 
 			if(Keyboard::isKeyPressed(Keyboard::Q))
