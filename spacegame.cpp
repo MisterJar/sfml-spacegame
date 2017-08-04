@@ -25,9 +25,9 @@ int main()
 {
 	RenderWindow window(VideoMode(800,600), "Spacegame");
 
-	CircleShape triPlayer(100,3); // The Triangle is the player
+	CircleShape triPlayer(80,3); // The Triangle is the player
 	triPlayer.setFillColor(Color::Blue); // the colour is blue
-	triPlayer.setPosition(500,300); // the position of the Player
+	triPlayer.setPosition(300,400); // the position of the Player
 
 	while(window.isOpen())
 
@@ -37,7 +37,6 @@ int main()
 		while(window.pollEvent(event))
 		{
 			if(event.type == Event::Closed) window.close();
-
 
 			if(Keyboard::isKeyPressed(Keyboard::Q))
 			{
@@ -53,11 +52,11 @@ int main()
 			}
 			if(Keyboard::isKeyPressed(Keyboard::Up)) // player goes up
 			{
-				triPlayer.move(0,25);
+				triPlayer.move(0,-25);
 			}
 			if(Keyboard::isKeyPressed(Keyboard::Down)) // player goes down
 			{
-				triPlayer.move(0,-25);
+				triPlayer.move(0,25);
 			}
 			if(Keyboard::isKeyPressed(Keyboard::Space)) // fires gun
 			{
