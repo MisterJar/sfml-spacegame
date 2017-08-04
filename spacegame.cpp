@@ -13,6 +13,8 @@
 //
 // If theres anything that I or you want to add, list them here
 //
+// ADD PSYICS ENGINE LIKE BASIC BOXES SO THE ENEMYS CAN DIE AND HAVE COLISION DETECTION
+//
 // TODO
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
@@ -23,7 +25,7 @@ using namespace sf;
 class Points {
 	public:
 
-
+// TODO 
 };
 class spaceMoney {
 	public:
@@ -52,9 +54,23 @@ int main()
 {
 	RenderWindow window(VideoMode(800,600), "Spacegame");
 // THIS IS GOING TO BE THE PLAYER!!!! HE SHOULD BE A TRIANGLE!!! BECAUSE SPACESHIP!!!
-	CircleShape triPlayer(80,3); // The Triangle is the player
+	CircleShape triPlayer(60,3); // The Triangle is the player
 	triPlayer.setFillColor(Color::Blue); // the colour is blue
 	triPlayer.setPosition(300,400); // the position of the Player
+
+	//Making bounding boxes for the Player
+	FloatRect boundingBox1 = triPlayer.getGlobalBounds();
+	Vector2f point = 10;
+	if(boundingBox1.contains(point))
+	{
+		//makes collision
+	}
+
+	FloatRect alien = 10;
+	if(boundingBox1.intersect(alien))
+	{
+		// makes collision
+	}
 
 
 // THIS IS GOING TO BE THE ALIEN! HE SHOULD BE A SPHERE! BECAUSE UFO!
@@ -65,8 +81,8 @@ int main()
 	RectangleShape bullet(Vector2f(10,5)); // the size and the width of the rectangle/bullet
 	bullet.rotate(90); // rotate 90 degrees
 	bullet.setFillColor(Color::White); // the colour of the bullet
+	bullet.setPosition(350, 380);
 
-	// other types
 
 	while(window.isOpen())
 
@@ -78,13 +94,7 @@ int main()
 			if(event.type == Event::Closed) window.close();
 					
 
-			// trying to make the bullet stay with the player.
-//			if(the player moves.)
-//			{
-//				// move the bullet where the player is.
-//				// add the statement where the bullet can be the same as the players
-//			}
-
+			
 			if(Keyboard::isKeyPressed(Keyboard::Q))
 			{
 				window.close(); // the game will quit if Q is pressed
@@ -92,18 +102,23 @@ int main()
 			if(Keyboard::isKeyPressed(Keyboard::Left)) // player goes left
 			{
 				triPlayer.move(-25,0);
+				bullet.move   (-25,0);
 			}
 			if(Keyboard::isKeyPressed(Keyboard::Right)) // player goes right
 			{
 				triPlayer.move(25,0);
-			}
+				bullet.move   (25,0);			
+			}	
+			
 			if(Keyboard::isKeyPressed(Keyboard::Up)) // player goes up
 			{
 				triPlayer.move(0,-25);
+				bullet.move   (0,-25);
 			}
 			if(Keyboard::isKeyPressed(Keyboard::Down)) // player goes down
 			{
 				triPlayer.move(0,25);
+				bullet.move   (0,25);
 			}
 			if(Keyboard::isKeyPressed(Keyboard::Space)) // fires gun
 			{
