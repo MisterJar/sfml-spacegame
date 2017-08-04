@@ -27,6 +27,7 @@ int main()
 
 	CircleShape triPlayer(100,3); // The Triangle is the player
 	triPlayer.setFillColor(Color::Blue); // the colour is blue
+	triPlayer.setPosition(500,300); // the position of the Player
 
 	while(window.isOpen())
 
@@ -42,16 +43,29 @@ int main()
 			{
 				window.close(); // the game will quit if Q is pressed
 			}
-			if(Keyboard::isKeyPressed(Keyboard::Left))
+			if(Keyboard::isKeyPressed(Keyboard::Left)) // player goes left
 			{
 				triPlayer.move(-25,0);
 			}
-			if(Keyboard::isKeyPressed(Keyboard::Right))
+			if(Keyboard::isKeyPressed(Keyboard::Right)) // player goes right
 			{
 				triPlayer.move(25,0);
 			}
-			
+			if(Keyboard::isKeyPressed(Keyboard::Up)) // player goes up
+			{
+				triPlayer.move(0,25);
+			}
+			if(Keyboard::isKeyPressed(Keyboard::Down)) // player goes down
+			{
+				triPlayer.move(0,-25);
+			}
+			if(Keyboard::isKeyPressed(Keyboard::Space)) // fires gun
+			{
+				// this will make the gun fire.
+			}
 		}
+
+	
 		window.clear();
 		window.draw(triPlayer);
 		window.display();
