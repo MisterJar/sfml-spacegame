@@ -51,12 +51,17 @@ int main()
 	triPlayer.setFillColor(Color::Blue); // the colour is blue
 	triPlayer.setPosition(300,400); // the position of the Player
 
+
 // THIS IS GOING TO BE THE ALIEN! HE SHOULD BE A SPHERE! BECAUSE UFO!
 	CircleShape alien(60,8);
 	alien.setFillColor(Color::Red);
 	alien.setPosition(300,100);
 // THIS IS GOING TO BE THE BULLET, IT IS GOING TO BE WHITE, AND A RECTANGLE
+	RectangleShape bullet(Vector2f(10,5)); // the size and the width of the rectangle/bullet
+	bullet.rotate(90); // rotate 90 degrees
+	bullet.setFillColor(Color::White); // the colour of the bullet
 
+	// other types
 
 	while(window.isOpen())
 
@@ -66,6 +71,13 @@ int main()
 		while(window.pollEvent(event))
 		{
 			if(event.type == Event::Closed) window.close();
+			
+
+			// trying to make the bullet stay with the player.
+//			if(bulletPostion = playerMovement)
+//			{
+//				bulletPostion == playerMovement;
+//			}
 
 			if(Keyboard::isKeyPressed(Keyboard::Q))
 			{
@@ -91,14 +103,16 @@ int main()
 			{
 				cout << "pew pew goes the gun!" << endl;
 				// this will make the gun fire.
+				window.draw(bullet);
 			}
 		}
 
 	
 		window.clear();
-		window.draw(triPlayer);
-		window.draw(alien);
-		window.display();
+		window.draw(triPlayer); // draws player
+		window.draw(bullet); // draws bullet
+		window.draw(alien); // draws alien
+		window.display(); // draws the display!
 		
 	}
 	return 0;
