@@ -63,7 +63,7 @@ int main()
 	Vector2f point = 10;
 	if(boundingBox1.contains(point))
 	{
-		//makes collision
+		
 	}
 
 	FloatRect alien = 10;
